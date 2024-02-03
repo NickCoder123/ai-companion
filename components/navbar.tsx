@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Figtree } from "next/font/google";
 import Link from "next/link";
 import { Menu, Sparkles } from "lucide-react";
@@ -8,6 +9,7 @@ import { UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
+import MobileSidebar from "@/components/mobile-sidebar";
 
 const font = Figtree({
   weight: "600",
@@ -15,10 +17,20 @@ const font = Figtree({
 });
 
 const Navbar = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
-    <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary">
+    <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary h-16">
       <div className="flex items-center">
-        <Menu className="md:hidden block" />
+        <MobileSidebar />
         <Link href="/">
           <h1
             className={cn(
