@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <ThemeProvider attribute="class" forcedTheme="dark" enableSystem>
-          <body className={inter.className}>{children}</body>
+          <body className={cn("bg-secondary", inter.className)}>
+            {children}
+          </body>
         </ThemeProvider>
       </html>
     </ClerkProvider>
