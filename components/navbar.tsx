@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Figtree } from "next/font/google";
 import Link from "next/link";
-import { Menu, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import MobileSidebar from "@/components/mobile-sidebar";
 
 const font = Figtree({
-  weight: "600",
+  weight: "800",
   subsets: ["latin"],
 });
 
@@ -34,7 +34,7 @@ const Navbar = () => {
         <Link href="/">
           <h1
             className={cn(
-              "hidden md:block text-xl md:text-3xl text-primary font-bold",
+              "hidden md:block text-xl md:text-3xl text-primary font-black",
               font.className
             )}
           >
